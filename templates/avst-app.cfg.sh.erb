@@ -1,0 +1,50 @@
+### File managed with puppet ###
+#### Served by:        '<%= scope.lookupvar('::servername') %>'
+#### Module:           '<%= scope.to_hash['module_name'] %>'
+#### Template source:  '<%= template_source %>'
+
+INSTANCE_NAME="<%= @instance_name %>"
+PRODUCT="coverity"
+
+INSTANCE_GROUP="<%= @hosting_group %>"
+INSTANCE_USER="<%= @hosting_user %>"
+
+<% if @db %>
+# Database config
+ <%- @db.keys.each do |key| -%>
+<%="#{key}=\'#{@db[key]}\'"%>
+ <%-end%>
+<% end %>
+
+<% if @java_flags %>
+#Java flags
+ <%- @java_flags.keys.each do |flag| -%>
+<%="#{flag}=\'#{@java_flags[flag]}\'"%>
+ <%-end%> 
+<%end%>
+
+<% if @custom %>
+#Custom config
+ <%- @custom.keys.each do |flag| -%>
+<%="#{flag}=\'#{@custom[flag]}\'"%>
+ <%-end%> 
+<%end%>
+<% if @admin_password %>
+ADMIN_PASSWORD="<%= @admin_password %>"
+<%end%>
+LICENSE_FILE_PATH="<%=@license_file_location%>"
+<%if @connectors%>
+CONNECTOR_COUNT="<%= @connectors.length %>"
+<%- index = 0
+@connectors.each do | conn |
+  if index == 0 then
+    suffix = ""
+  else
+    suffix = "_#{index}"
+  end
+  conn.each_pair do |k,v| -%>
+<%= "#{k.upcase}#{suffix}" %>=<%= "#{v}" %>
+<% end %>
+<%- index += 1
+end -%>
+<%end%>
