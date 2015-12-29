@@ -25,6 +25,7 @@ describe 'coverity', :type => 'class' do
   context "Should create base dir, avst-app file and instantiate resources" do
     let(:facts){{
       :osfamily => 'Debian',
+      :lsbdistid => 'Ubuntu',
       :lsbdistcodename => 'precise',
       :host => custom_host,
     }}
@@ -54,6 +55,7 @@ describe 'coverity', :type => 'class' do
     }}
     let(:facts){{
       :osfamily => 'Debian',
+      :lsbdistid => 'Ubuntu',
       :lsbdistcodename => 'precise',
     }}
     it do
@@ -78,6 +80,7 @@ describe 'coverity', :type => 'class' do
   let(:facts){{
     :osfamily => 'Debian',
     :lsbdistcodename => 'precise',
+    :lsbdistid => 'Ubuntu',
     :host => host,
   }}
   let(:params){{
@@ -109,6 +112,7 @@ describe 'coverity', :type => 'class' do
   let(:facts){{
     :osfamily => 'Debian',
     :lsbdistcodename => 'precise',
+    :lsbdistid => 'Ubuntu',
     :host => host,
   }}
   let(:params){{

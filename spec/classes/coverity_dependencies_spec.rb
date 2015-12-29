@@ -13,6 +13,7 @@ describe 'coverity::dependencies', :type => 'class' do
     let(:facts){{
       :osfamily => 'Debian',
       :lsbdistcodename => 'precise',
+      :lsbdistid => 'Ubuntu',
       :host => host,
     }}
 
