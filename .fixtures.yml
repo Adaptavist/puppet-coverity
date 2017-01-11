@@ -14,6 +14,6 @@ fixtures:
     yum:
       repo: 'https://github.com/Adaptavist/puppet-yum'
     puppi:
-      repo: 'https://github.com/Adaptavist/puppet-puppi'
+      repo: 'https://github.com/example42/puppi.git'
   symlinks:
     coverity: "#{source_dir}"

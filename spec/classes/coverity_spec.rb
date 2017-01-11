@@ -30,7 +30,7 @@ describe 'coverity', :type => 'class' do
       :host => custom_host,
     }}
     it do
-      should contain_oracle_java
+      should contain_class('oracle_java')
       should contain_file(base_directory).with(
           'ensure'  => 'directory',
           'owner'   => 'root',
@@ -59,7 +59,7 @@ describe 'coverity', :type => 'class' do
       :lsbdistcodename => 'precise',
     }}
     it do
-      should contain_oracle_java
+      should contain_class('oracle_java')
       should contain_file(cust_base_directory).with(
           'ensure'  => 'directory',
           'owner'   => 'root',
@@ -88,7 +88,7 @@ describe 'coverity', :type => 'class' do
   }}
 
     it do
-    should contain_coverity
+    should contain_class('coverity')
     [instance_dir].each do |file_name|
         should contain_file( file_name ).with(
           'ensure' => 'directory',
@@ -122,7 +122,7 @@ describe 'coverity', :type => 'class' do
   }}
 
     it do
-    should contain_coverity
+    should contain_class('coverity')
     [instance_dir].each do |file_name|
         should contain_file( file_name ).with(
           'ensure' => 'directory',

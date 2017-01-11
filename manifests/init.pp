@@ -47,7 +47,7 @@ class coverity(
   Class['coverity']
 
   # merge custom configuration with defaults
-  if $::host != undef {
+  if hiera('host', undef) != undef {
     $custom_conf = $host["${name}::conf"]
     $config = $custom_conf ? {
         undef => $conf,

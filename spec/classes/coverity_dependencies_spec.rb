@@ -18,7 +18,7 @@ describe 'coverity::dependencies', :type => 'class' do
     }}
 
     it do
-      should contain_oracle_java
+      should contain_class('oracle_java')
       should contain_limits__fragment('*/soft/nofile').with(
         'value' => '1024'
       )
@@ -36,11 +36,12 @@ describe 'coverity::dependencies', :type => 'class' do
       :osfamily => 'RedHat',
       :operatingsystem => 'RedHat',
       :operatingsystemrelease => '6.5',
+      :releasever => '1',
       :host => host,
     }}
 
     it do
-      should contain_oracle_java
+      should contain_class('oracle_java')
       should contain_limits__fragment('*/soft/nofile').with(
         'value' => '1024'
       )
