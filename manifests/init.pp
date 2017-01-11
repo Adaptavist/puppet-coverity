@@ -75,7 +75,7 @@ class coverity(
   }
 
   $instance_dir = "${base_directory}/${instance_name}"
-  
+
   # Create base directory structure
   file { $instance_dir :# , "${instance_dir}/home", "${instance_dir}/install"] :
     ensure => directory,
@@ -91,7 +91,7 @@ class coverity(
   $custom = $config['custom']
   $admin_password = $config['admin_password']
   $connectors = $config['connectors']
-  
+
   # Prepare config for coverity
   file { "${instance_dir}/avst-app.cfg.sh" :
     ensure  => file,
@@ -108,7 +108,7 @@ class coverity(
           ensure  => installed,
           require => File["${instance_dir}/avst-app.cfg.sh"],
   }
-  
+
   # run avst-app install with tarball passed
   exec {
       'install_coverity_with_avstapp':
