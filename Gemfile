@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
  
 group :rake do
-  gem 'puppet', '3.7.5'
+  gem 'puppet', ENV['PUPPET_VERSION']
+  gem 'puppet-syntax', '>= 2.1.1'
   gem 'rspec-puppet'
   gem 'rake'
   gem 'puppetlabs_spec_helper'

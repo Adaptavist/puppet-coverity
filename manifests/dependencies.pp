@@ -5,7 +5,7 @@ class coverity::dependencies {
     include oracle_java
 
     case $::osfamily {
-        RedHat: {
+        'RedHat': {
             package { ['apr-util', 'neon']:
                 ensure => installed
             }
@@ -13,7 +13,7 @@ class coverity::dependencies {
                 ensure => installed,
             }
         }
-        Debian: {
+        'Debian': {
             package { 'libaugeas-ruby':
                 ensure => installed,
             }
