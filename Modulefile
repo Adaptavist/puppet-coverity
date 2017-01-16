@@ -1,5 +1,5 @@
 name 'puppet/coverity'
-version '0.1.9'
+version '1.0.0'
 source 'git@github.com:mattohope/puppet-coverity.git'
 author 'mbrehovsky'
 summary 'coverity Module' 
